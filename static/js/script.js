@@ -30,6 +30,13 @@ function catReset() {
 
 // Challenge 3: rock paper scissor
 
+// reset button functionality
+function rpsReset(){
+    rps_playground = document.getElementById('flex-box-rps');
+    backup = rps_playground.innerHTML;
+    rps_playground.innerHTML = '<img id="rock" src="static/images/rock.png" onclick="rpsGame(this)"><img id="paper" src="static/images/paper.png" onclick="rpsGame(this)"><img id="scissor" src="static/images/scissor.png" onclick="rpsGame(this)">';
+};
+
 function rpsGame(yourChoice) {
     // human choice
     let humanChoice = yourChoice.id;
@@ -69,24 +76,26 @@ function rpsGame(yourChoice) {
     }
 
     let finalMessage = document.createElement('div');
-    finalMessage.innerHTML = "<h1 style='color:" + msgColor + "; font-size: 50px; margin: 60px;'>" + msg + "</h1>"
+    // finalMessage.innerHTML = "<div><h1 style='color:" + msgColor + "; font-size: 50px;'>" + msg + "</h1><button class='btn btn-outline-secondary' onclick='rpsReset()'>Reset</button></div>"
+    finalMessage.innerHTML = "<div><h1 style='color:" + msgColor + "; font-size: 50px; margin:60px 0;'>" + msg + "</h1>"
 
     botDiv = document.createElement('div');
     botDiv.innerHTML = "<img src = '" + botDivSrc + "' style='width:150; height:150; box-shadow: inset 0 0 13px 6px #292b2c;'>";
 
     // remove all images
     rps_playground = document.getElementById('flex-box-rps');
+    backup = rps_playground.innerHTML; // backup to restore with reset button
     rps_playground.innerHTML = '';
 
     // declare winner on screen by adding humanchoice-message-botchoice
     rps_playground.appendChild(humanDiv);
     rps_playground.appendChild(finalMessage);
     rps_playground.appendChild(botDiv);
-    
 
-
-
-    // rps_playground.appendChild()
+    // restarting game
+    setTimeout(function(){
+        rpsReset();
+    }, 2000);
 
     console.log(humanChoice, botChoice, result);
 }
