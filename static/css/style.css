@@ -18,9 +18,9 @@ hr {
     box-shadow: 6px 6px 13px 6px rgba(0,0,0,0.30);
 }
 
-/* buttons for challenge 1 and 2 */
+/* body of challenges */
 
-.flex-box-buttons {
+.flex-box-body {
     display: flex;
     /* border: 1px solid black; */
     padding: 10px;
@@ -51,13 +51,21 @@ hr {
 
 /* rock - paper -scissor */
 
-.flex-box-rps img {
+/* .flex-box-rps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+} */
+
+#flex-box-rps img {
+    width: 150px;
+    height: 150px;
     margin: 20px;
     border-radius: 50%;
-    -webkit-user-drag: none;
+    -webkit-user-drag: none; /* remove image dragging */
 }
 
-.flex-box-rps img:hover{
+#rock:hover, #paper:hover, #scissor:hover{
     margin: 10px;
     width: 170px;
     height: 170px;

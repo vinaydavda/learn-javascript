@@ -15,7 +15,7 @@ function ageReset() {
     document.getElementById('ageInDays').remove();
 }
 
-// CHallenge 2: Cat Generator
+// Challenge 2: Cat Generator
 
 function generateCat() {
     var image = document.createElement('img');
@@ -26,4 +26,67 @@ function generateCat() {
 
 function catReset() {
     document.getElementById('flex-cat-gen').innerHTML = '';
+}
+
+// Challenge 3: rock paper scissor
+
+function rpsGame(yourChoice) {
+    // human choice
+    let humanChoice = yourChoice.id;
+    
+    // random choice by bot
+    let botChoice = Math.floor(Math.random() * 3); // generates random number between 0 to 3
+    botChoice = ['rock', 'paper', 'scissor'][botChoice];
+
+    // possible outcomes database - 0, 0.5, 1 - lost, draw, won
+    let possible_results = {
+        'rock': {'rock': 0.5, 'paper': 0, 'scissor': 1},
+        'paper': {'rock': 1, 'paper': 0.5, 'scissor': 0},
+        'scissor': {'rock': 0, 'paper': 1, 'scissor': 0.5},
+    };
+
+    // decide the result according to human and bot choice
+    let result = possible_results[humanChoice][botChoice];
+
+    // necessary images sources
+    let humanDivSrc = yourChoice.src;
+    let botDivSrc = document.getElementById(botChoice).src;
+
+    // make frontend parts
+    let humanDiv = document.createElement('div');
+    humanDiv.innerHTML = "<img src = '" + humanDivSrc + "' style='width:150; height:150; box-shadow: inset 0 0 13px 6px #5cb85c;'>";
+
+    let msg = ''
+    if (result === 1) {
+        msg = 'You Won :)';
+        msgColor = '#5cb85c';
+    } else if (result === 0) {
+        msg = 'You Lost :(';
+        msgColor = '#d9534f';
+    } else {
+        msg = 'You Tied !';
+        msgColor = '#f0ad4e';
+    }
+
+    let finalMessage = document.createElement('div');
+    finalMessage.innerHTML = "<h1 style='color:" + msgColor + "; font-size: 50px; margin: 60px;'>" + msg + "</h1>"
+
+    botDiv = document.createElement('div');
+    botDiv.innerHTML = "<img src = '" + botDivSrc + "' style='width:150; height:150; box-shadow: inset 0 0 13px 6px #292b2c;'>";
+
+    // remove all images
+    rps_playground = document.getElementById('flex-box-rps');
+    rps_playground.innerHTML = '';
+
+    // declare winner on screen by adding humanchoice-message-botchoice
+    rps_playground.appendChild(humanDiv);
+    rps_playground.appendChild(finalMessage);
+    rps_playground.appendChild(botDiv);
+    
+
+
+
+    // rps_playground.appendChild()
+
+    console.log(humanChoice, botChoice, result);
 }
