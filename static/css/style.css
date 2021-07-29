@@ -15,7 +15,7 @@ hr {
     margin: 20px auto;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 6px 6px 13px 6px rgba(0,0,0,0.30);
+    box-shadow: 6px 6px 6px 6px rgba(0,0,0,0.30);
 }
 
 /* body of challenges */
@@ -51,12 +51,6 @@ hr {
 
 /* rock - paper -scissor */
 
-/* .flex-box-rps {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-} */
-
 #flex-box-rps img {
     width: 150px;
     height: 150px;
@@ -77,4 +71,46 @@ hr {
     width: 170px;
     height: 170px;
     box-shadow: inset 0 0 13px 20px #5cb85c;
+}
+
+/* change button colors */
+
+.btn-ice-blue {
+    background-color: #64B5F6;
+    color: white;
+}
+
+.btn-ice-blue:hover {
+    background-color: #447dac;
+    color: white;
+}
+
+.btn-ice-green {
+    background-color: mediumaquamarine;
+    color: white;
+}
+
+.btn-ice-green:hover {
+    background-color: rgb(60, 124, 103);
+    color: white;
+}
+
+.btn-ice-orange {
+    background-color: #f8ab38;
+    color: white;
+}
+
+.btn-ice-orange:hover {
+    background-color: #c2862c;
+    color: white;
+}
+
+.btn-ice-red {
+    background-color: #FF8A65;
+    color: white;
+}
+
+.btn-ice-red:hover {
+    background-color: #c2674c;
+    color: white;
 }
