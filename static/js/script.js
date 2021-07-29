@@ -115,7 +115,7 @@ var all_buttons = document.getElementsByTagName('button');
 // take a backup of original colors
 var copyOriginalColors = []
 for (let i = 0; i < all_buttons.length; i++) {
-    copyOriginalColors.push(all_buttons[i].classList.item(1));
+    copyOriginalColors.push(all_buttons[i].classList[1]);
 }
 
 function buttonColorChange(selectObject) {
@@ -128,7 +128,7 @@ function buttonColorChange(selectObject) {
     } else {
         for (let i = 0; i < all_buttons.length; i++) {
             // changing colors of all buttons
-            all_buttons[i].classList.remove(all_buttons[i].classList.item(1));
+            all_buttons[i].classList.remove(all_buttons[i].classList[1]);
             all_buttons[i].classList.add('btn-ice-' + colorValue);
         }
     }
@@ -142,7 +142,7 @@ function randomColor() {
     // random choice of color
     for (let i = 0; i < all_buttons.length; i++) {
         let randomNumber = Math.floor(Math.random() * 4);
-        all_buttons[i].classList.remove(all_buttons[i].classList.item(1));
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
         all_buttons[i].classList.add('btn-ice-' + colorArray[randomNumber]);
         // console.log(randomNumber);
     };
@@ -151,7 +151,7 @@ function randomColor() {
 function resetColor() {
     for (let i = 0; i < all_buttons.length; i++) {
         // removing existing color and adding original color
-        all_buttons[i].classList.remove(all_buttons[i].classList.item(1));
+        all_buttons[i].classList.remove(all_buttons[i].classList[1]);
         all_buttons[i].classList.add(copyOriginalColors[i]);
     }
 }
